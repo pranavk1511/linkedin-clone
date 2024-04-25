@@ -2,6 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 import { Briefcase, HomeIcon, MessageSquare, MessagesSquare, SearchIcon, UserIcon } from 'lucide-react'
 import Link from 'next/link'
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { Button } from './ui/button'
 function Header() {
     return (
         <div className='flex items-center p-2 max-w-6xl mx-auto'>
@@ -42,6 +44,15 @@ function Header() {
                     <p>Home</p>
                 </Link>
 
+                <SignedIn>
+                    <UserButton/>
+                </SignedIn>
+
+                <SignedOut>
+                    <Button asChild variant='secondary'>
+                        <SignInButton/>
+                    </Button>
+                </SignedOut>
             </div>
         </div>
     )
