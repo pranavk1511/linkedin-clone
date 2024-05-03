@@ -7,6 +7,7 @@ export interface ICommentBase {
 }
 
 export interface IComment extends Document,ICommentBase {
+    _id: any;
     createdAt:Date;
     updatedAt:Date;
 }
@@ -16,6 +17,7 @@ const CommentSchema = new Schema<IComment>({
         userId:{type:String,required:true},
         userImage:{type:String,required:true},
         firstName:{type:String,required:true},
+        lastname: {type:String,required:true},
     },
     text:{type:String,required:true},
 },
